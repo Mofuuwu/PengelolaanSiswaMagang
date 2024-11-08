@@ -1,1 +1,2 @@
-# Aplikasi untuk mengelola data siswa magang pada sebuah universitas
+# Aplikasi untuk mengelola data siswa magang pada sebuah universitas berbasis Laravel
+
