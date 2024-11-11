@@ -17,15 +17,27 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard'); // Ganti dengan route dashboard Anda
-        }
-
-        return back()->withErrors([
-            'email' => 'Email atau password salah.',
+        $credentials = $request->validate([
+            'email' => ['required', 'email:dns'],
+            'password' => ['required', 'min:8'],
         ]);
+
+     
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            $role = Auth::user()->role;
+
+            if($role === '1') {
+                return redirect('/admin')->with('success', 'Login Berhasil, Selamat Datang Admin');
+            } else {
+                return redirect('/user')->with('success', 'Login Berhasil');
+            }
+            
+
+        }
+ 
+        return back()->with('loginError', 'Login Gagal, Username Atau Password Salah')->withInput();
     }
 
     public function showRegisterForm()
@@ -33,23 +45,17 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request)
+    public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validateData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => 'required|string|email:dns|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'status' => 'required'
         ]);
 
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $validateData['password'] = bcrypt($validateData['password']);
+        User::create($validateData);
 
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login.');
     }
@@ -57,6 +63,6 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Logout Berhasil');
     }
 }

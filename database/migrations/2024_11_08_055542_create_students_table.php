@@ -20,6 +20,12 @@ return new class extends Migration
             $table->string('phoneNumber');
             $table->string('address');
             $table->unsignedBigInteger('schoolAdvisor_id');
+            $table->string('profilePhoto');
+            $table->string('fatherName');
+            $table->string('fatherJob');
+            $table->string('motherName');
+            $table->string('motherJob');
+            $table->string('email');
         });
     }
 

@@ -1,0 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    background-color: #f3f3f3;
+}
+.bg-custom1 {
+    background-color: rgba(36, 54, 66, .8);
+}

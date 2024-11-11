@@ -25,9 +25,9 @@
                 <th>Kelas</th>
                 <th>Jurusan</th>
                 <th>Asal Sekolah</th>
-                <th>Nomor Kontak</th>
+                <!-- <th>Nomor Kontak</th>
                 <th>Alamat</th>
-                <th>Pembimbing Sekolah</th>
+                <th>Pembimbing Sekolah</th> -->
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -39,10 +39,11 @@
                     <td>{{ $student->class }}</td>
                     <td>{{ $student->major->name }}</td>
                     <td>{{ $student->school->name }}</td>
-                    <td>{{ $student->address }}</td>
-                    <td>{{ $student->phoneNumber }}</td>
-                    <td>{{ $student->schoolAdvisor->name }}</td>
+                    <!-- <td>{{ $student->phoneNumber }}</td> -->
+                    <!-- <td>{{ $student->address }}</td> -->
+                    <!-- <td>{{ $student->schoolAdvisor->name }}</td> -->
                     <td>
+                        <a href="{{ route('students.show', $student->id) }}" class="btn btn-primary">Lihat</a>
                         <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline-block;">
                             @csrf

@@ -47,7 +47,8 @@ class StudentController extends Controller
 
     public function show(string $id)
     {
-        
+        $student = Student::with('major', 'school', 'schoolAdvisor')->findOrFail($id);
+        return view('students.detail', compact('student'));
     }
 
     public function edit(string $id)
