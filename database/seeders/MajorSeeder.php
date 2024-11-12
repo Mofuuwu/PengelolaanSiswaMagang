@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Major;
 
 class MajorSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class MajorSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Major::factory(7)->create();
     }
 }

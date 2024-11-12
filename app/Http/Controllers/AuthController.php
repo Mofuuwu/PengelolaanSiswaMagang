@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email:dns'],
+            'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],
         ]);
 
@@ -49,7 +49,7 @@ class AuthController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email:dns|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'status' => 'required'
         ]);

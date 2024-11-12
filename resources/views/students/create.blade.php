@@ -83,6 +83,48 @@
         </div>
 
         <div class="form-group">
+            <label for="profilePhoto">Foto Profil</label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="profilePhoto" name="profilePhoto" required>
+                <label class="custom-file-label" for="profilePhoto">Pilih file</label>
+            </div>
+            @error('profilePhoto')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="fatherName">Nama Ayah</label>
+            <input type="text" class="form-control" id="fatherName" name="fatherName" required value="{{ old('fatherName') }}">
+            @error('fatherName')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        
+        <div class="form-group">
+            <label for="fatherJob">Pekerjaan Ayah</label>
+            <input type="text" class="form-control" id="fatherJob" name="fatherJob" required value="{{ old('fatherJob') }}">
+            @error('fatherJob')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="motherName">Nama Ibu</label>
+            <input type="text" class="form-control" id="motherName" name="motherName" required value="{{ old('motherName') }}">
+            @error('motherName')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        
+        <div class="form-group">
+            <label for="motherJob">Pekerjaan Ibu</label>
+            <input type="text" class="form-control" id="motherJob" name="motherJob" required value="{{ old('motherJob') }}">
+            @error('motherJob')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
             <label for="schoolAdvisor_id">Pembimbing</label>
             
             <select name="schoolAdvisor_id" id="schoolAdvisor_id" autocomplete="off" class="form-control" required>
@@ -99,3 +141,13 @@
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 @stop
+
+@section('js') 
+    <script>
+        document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+            var fileName = document.getElementById("profilePhoto").files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.innerText = fileName;
+        });
+    </script>
+@endsection

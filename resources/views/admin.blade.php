@@ -82,13 +82,13 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-primary">
                 <div class="inner">
-                    <h3>{{$schoolAdvisorTotal}}</h3>
+                    <h3>{{$universityAdvisorTotal}}</h3>
                     <p>Pembimbing Universitas</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
-                <a href="schoolAdvisors" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="universityAdvisors" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
@@ -114,7 +114,7 @@
                 <div class="icon">
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="placementLocations" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

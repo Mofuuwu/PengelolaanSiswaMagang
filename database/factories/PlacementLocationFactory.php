@@ -17,7 +17,21 @@ class PlacementLocationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => $this->faker->unique()->numberBetween('100000', '999999'),
+            'name' => $this->faker->unique()->randomElement([
+                'Gedung Utama',
+                'Gedung Kedua',
+                'Gedung Ketiga'
+            ]),
+            'address' => $this->faker->randomElement([
+                'Jl. Raya Malioboro',
+                'Jl. Pegangsaan Timur',
+                'Jl. Raya Kedungbanteng',
+                'Jl. Raya Watumas',
+                'Jl. Raya Kalibagor',
+                'Jl. Raya Sokaraja',
+                'Jl. Raya Cilacap'
+            ])
         ];
     }
 }

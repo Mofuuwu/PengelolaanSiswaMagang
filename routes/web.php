@@ -63,6 +63,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register')->middleware('guest');
 Route::post('/register', [AuthController::class, 'store']);
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/user', [UserController::class, 'index'])->middleware('auth');
 Route::get('/', fn () =>  redirect('/login'));

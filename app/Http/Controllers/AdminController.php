@@ -11,10 +11,16 @@ use App\Models\WorkUnit;
 use App\Models\Major;
 use App\Models\PlacementLocation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function index() {
+        
+        if(Auth::user()->role === '3') {
+            return redirect('/user');
+        }
+
         $userTotal = User::count();
         $studentTotal = Student::count();
         $schoolAdvisorTotal = SchoolAdvisor::count();

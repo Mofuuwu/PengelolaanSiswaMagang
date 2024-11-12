@@ -17,7 +17,16 @@ class MajorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => $this->faker->unique()->numberBetween('100000', '999999'),
+            'name' => $this->faker->unique()->randomElement([
+                'Rekayasa Perangkat Lunak',
+                'Teknik Komputer Dan Jaringan',
+                'Akuntansi Dan Keuangan Lembaga',
+                'Manajemen Perkantoran Dan Bisnis',
+                'Pemasaran',
+                'Teknik Farmasi',
+                'Desain Komunikasi Visual'
+            ])
         ];
     }
 }
