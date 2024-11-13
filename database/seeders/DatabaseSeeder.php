@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SchoolSeeder::class);
         $this->call(SchoolAdvisorSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(WorkUnitSeeder::class);
+        $this->call(UniversityAdvisorSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

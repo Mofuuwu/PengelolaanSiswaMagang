@@ -35,11 +35,35 @@ class StudentController extends Controller
             'school_id' => 'required|max:255',
             'phoneNumber' => 'required|regex:/^0[0-9]+$/|digits_between:11,13',
             'address' => 'required|max:255',
+            'profilePhoto' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            'fatherName' => 'required|string',
+            'motherName' => 'required|string',
+            'motherJob' => 'required|string',
             'schoolAdvisor_id' => 'required|max:255'
         ]);
 
+
+        
         $Student = new Student();
-        $Student->create($validatedData);
+        $file = $request->file('profilePhoto');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('public/img/students', $filename);
+
+        if($request->anotherFatherJob !== null) {
+            $Student->fatherJob = $request->anotherFatherJob;
+        } else if ($request->anotherFatherJob === null) {
+            $Student->fatherJob = $request->fatherJob;
+        }
+
+        if($request->anotherMotherJob !== null) {
+            $Student->motherJob = $request->anotherMotherJob;
+        } else if ($request->anotherMotherJob === null) {
+            $Student->motherJob = $request->motherJob;
+        }
+
+        $Student->profilePhoto = basename($path);
+        $Student->fill($validatedData);
+        $Student->save();
 
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }

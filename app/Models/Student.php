@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-    protected $fillable = ['id', 'name', 'class', 'major_id', 'school_id', 'phoneNumber', 'address', 'schoolAdvisor_id'];
+    protected $fillable = ['id', 'name', 'class', 'major_id', 'school_id', 'phoneNumber', 'address', 'fatherName', 'fatherJob', 'motherName', 'motherJob', 'schoolAdvisor_id'];
     public $timestamps = false;
 
     public function major() {

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\PlacementLocation;
+use App\Models\WorkUnit;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class UniversityAdvisorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => $this->faker->numberBetween('100000', '999999'),
+            'name' => $this->faker->name(),
+            'phoneNumber' => $this->faker->phoneNumber(),
+            'unit_id' => WorkUnit::inRandomOrder()->first()->id,
+            'placementLocation_id' => PlacementLocation::inRandomOrder()->first()->id
         ];
     }
 }
