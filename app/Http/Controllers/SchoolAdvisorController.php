@@ -10,7 +10,7 @@ class SchoolAdvisorController extends Controller
     public function index()
     {
         $schoolAdvisors = SchoolAdvisor::with('school')->get();
-        return view('schoolAdvisors.index', compact('schoolAdvisors'));
+        return view('admin.schoolAdvisors.index', compact('schoolAdvisors'));
     }
 
     /**
@@ -19,7 +19,7 @@ class SchoolAdvisorController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('schoolAdvisors.create', compact('schools'));
+        return view('admin.schoolAdvisors.create', compact('schools'));
     }
 
     /**
@@ -61,7 +61,7 @@ class SchoolAdvisorController extends Controller
     {
         $schoolAdvisor = SchoolAdvisor::findOrFail($id);
         $schools = School::all();
-        return view('schoolAdvisors.edit', compact('schoolAdvisor', 'schools'));
+        return view('admin.schoolAdvisors.edit', compact('schoolAdvisor', 'schools'));
     }
 
     /**

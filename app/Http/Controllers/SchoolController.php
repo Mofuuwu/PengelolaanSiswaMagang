@@ -9,7 +9,7 @@ class SchoolController extends Controller
     public function index()
     {
         $schools = School::all();
-        return view('schools.index', compact('schools'));
+        return view('admin.schools.index', compact('schools'));
     }
 
     /**
@@ -18,7 +18,7 @@ class SchoolController extends Controller
     public function create()
     {
 
-        return view('schools.create');
+        return view('admin.schools.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class SchoolController extends Controller
     public function edit(string $id)
     {
         $school = School::findOrFail($id);
-        return view('schools.edit', compact('school'));
+        return view('admin.schools.edit', compact('school'));
     }
 
     /**

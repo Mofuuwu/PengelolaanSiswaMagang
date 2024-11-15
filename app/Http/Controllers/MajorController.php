@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 class MajorController extends Controller
 {
+    
     public function index()
     {
         $majors = Major::all();
-        return view('majors.index', compact('majors'));
+        return view('admin.majors.index', compact('majors'));
     }
 
     /**
@@ -17,7 +18,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        return view('majors.create');
+        return view('admin.majors.create');
     }
 
     /**
@@ -56,7 +57,7 @@ class MajorController extends Controller
     public function edit(string $id)
     {
         $major = Major::findOrFail($id);
-        return view('majors.edit', compact('major'));
+        return view('admin.majors.edit', compact('major'));
     }
 
     /**

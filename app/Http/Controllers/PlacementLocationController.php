@@ -10,7 +10,7 @@ class PlacementLocationController extends Controller
     public function index()
     {
         $placementLocations = PlacementLocation::all();
-        return view('placementLocations.index', compact('placementLocations'));
+        return view('admin/placementLocations.index', compact('placementLocations'));
     }
 
     /**
@@ -18,7 +18,7 @@ class PlacementLocationController extends Controller
      */
     public function create()
     {
-        return view('placementLocations.create');
+        return view('admin/placementLocations.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class PlacementLocationController extends Controller
     public function edit(string $id)
     {
         $placementLocation = PlacementLocation::findOrFail($id);
-        return view('placementLocations.edit', compact('placementLocation'));
+        return view('admin/placementLocations.edit', compact('placementLocation'));
     }
 
     /**

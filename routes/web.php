@@ -47,14 +47,16 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+//tambahin moddleware auth
 
-Route::resource('/universityAdvisors', UniversityAdvisorController::class);
-Route::resource('/workUnits', WorkUnitController::class);
-Route::resource('/placementLocations', PlacementLocationController::class);
-Route::resource('/schools', SchoolController::class);
-Route::resource('/majors', MajorController::class);
-Route::resource('/schoolAdvisors', SchoolAdvisorController::class);
-Route::resource('/students', StudentController::class);
+
+Route::resource('/admin/universityAdvisors', UniversityAdvisorController::class)->middleware('auth');
+Route::resource('/admin/workUnits', WorkUnitController::class)->middleware('auth');
+Route::resource('/admin/placementLocations', PlacementLocationController::class)->middleware('auth');
+Route::resource('/admin/schools', SchoolController::class)->middleware('auth');
+Route::resource('/admin/majors', MajorController::class)->middleware('auth');
+Route::resource('/admin/schoolAdvisors', SchoolAdvisorController::class)->middleware('auth');
+Route::resource('/admin/students', StudentController::class)->middleware('auth');
 
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');

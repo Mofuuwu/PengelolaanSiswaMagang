@@ -12,13 +12,13 @@ class UniversityAdvisorController extends Controller
     public function index()
     {
         $universityAdvisors = UniversityAdvisor::with('placementLocation', 'workUnit')->get();
-        return view('universityAdvisors.index', compact('universityAdvisors'));
+        return view('admin.universityAdvisors.index', compact('universityAdvisors'));
     }
     public function create()
     {
         $workUnits = WorkUnit::all();
         $placementLocations = PlacementLocation::all();
-        return view('universityAdvisors.create', compact('workUnits', 'placementLocations'));
+        return view('admin.universityAdvisors.create', compact('workUnits', 'placementLocations'));
     }
 
     /**
@@ -62,7 +62,7 @@ class UniversityAdvisorController extends Controller
         $universityAdvisor = UniversityAdvisor::findOrFail($id);
         $workUnits = WorkUnit::all();
         $placementLocations = PlacementLocation::all();
-        return view('universityAdvisors.edit', compact('universityAdvisor','workUnits', 'placementLocations'));
+        return view('admin.universityAdvisors.edit', compact('universityAdvisor','workUnits', 'placementLocations'));
     }
 
     /**

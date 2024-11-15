@@ -25,13 +25,16 @@
                 <th>Nomor Kontak</th>
                 <th>Unit Kerja</th>
                 <th>Lokasi Penempatan</th>
+                <th>Aksi</th>
             </tr>
         </thead>
+        
         <tbody>
             @foreach ($universityAdvisors as $universityAdvisor)
                 <tr>
                     <td>{{ $universityAdvisor->id }}</td>
                     <td>{{ $universityAdvisor->name }}</td>
+                    <td>{{ $universityAdvisor->phoneNumber }}</td>
                     <td>{{ $universityAdvisor->workUnit->name }}</td>
                     <td>{{ $universityAdvisor->placementLocation->name }}</td>
                     <td>

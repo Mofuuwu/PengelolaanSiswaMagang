@@ -6,13 +6,15 @@
     <h1>Ubah Data Pembimbing Sekolah</h1>
 @stop
 
+
+
 @section('content')
     <form action="{{ route('universityAdvisors.update', $universityAdvisor->id) }}" method="POST">
         @csrf
         @method('PUT')
 
         <div class="form-group">
-            <label for="name">name Pembimbing</label>
+            <label for="name">Nama Pembimbing</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $universityAdvisor['name'] }}" required>
             @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -21,7 +23,7 @@
 
         <div class="form-group">
             <label for="phoneNumber">Nomor Kontak</label>
-            <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" value="{{ $universityAdvisor['phoneNumber'] }}" required>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="{{ $universityAdvisor['phoneNumber'] }}" required>
             @error('phoneNumber')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

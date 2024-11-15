@@ -12,7 +12,7 @@ class WorkUnitController extends Controller
     {
         $workUnits = WorkUnit::with('placementLocation')->get();
         // dd($workUnits);
-        return view('workUnits.index', compact('workUnits'));
+        return view('admin.workUnits.index', compact('workUnits'));
     }
 
     /**
@@ -21,7 +21,7 @@ class WorkUnitController extends Controller
     public function create()
     {
         $placementLocations = PlacementLocation::all();
-        return view('workUnits.create', compact('placementLocations'));
+        return view('admin.workUnits.create', compact('placementLocations'));
     }
 
     /**
@@ -61,7 +61,7 @@ class WorkUnitController extends Controller
     {
         $placementLocations = PlacementLocation::all();
         $workUnit = WorkUnit::findOrFail($id);
-        return view('workUnits.edit', compact('workUnit', 'placementLocations'));
+        return view('admin.workUnits.edit', compact('workUnit', 'placementLocations'));
     }
 
     public function update(Request $request, $id)

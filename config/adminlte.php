@@ -322,7 +322,7 @@ return [
         // ],
         [
             'text' => 'Home',
-            'url' => '/',
+            'url' => '/admin',
             'icon' => 'fas fa-fw fa-home',
             'label_color' => 'success',
         ],
@@ -333,19 +333,19 @@ return [
             'submenu' => [
                 [
                     'text' => 'Data Pembimbing',
-                    'url' => 'universityAdvisors',
+                    'url' => 'admin/universityAdvisors',
                     'icon' => 'fas fa-fw fa-user-graduate',
                     'label_color' => 'success',
                 ],
                 [
                     'text' => 'Data Unit',
-                    'url' => 'workUnits',
+                    'url' => 'admin/workUnits',
                     'icon' => 'fas fa-fw fa-user-graduate',
                     'label_color' => 'success',
                 ],
                 [
                     'text' => 'Data Lokasi Penempatan',
-                    'url' => 'placementLocations',
+                    'url' => 'admin/placementLocations',
                     'icon' => 'fas fa-fw fa-building',
                     'label_color' => 'success',
                 ],
@@ -357,26 +357,26 @@ return [
             'submenu' => [
                 [
                     'text' => 'Data Sekolah',
-                    'url' => 'schools',
+                    'url' => 'admin/schools',
                     'icon' => 'fas fa-fw fa-school',
                     'label_color' => 'success',
                 ],
                 [
                     'text' => 'Data Guru Pembimbing',
-                    'url' => 'schoolAdvisors',
+                    'url' => 'admin/schoolAdvisors',
                     'icon' => 'fas fa-fw fa-chalkboard-teacher',
                     'label_color' => 'success',
                 ],
                 
                 [
                     'text' => 'Data Siswa',
-                    'url' => 'students',
+                    'url' => 'admin/students',
                     'icon' => 'fas fa-fw fa-user',
                     'label_color' => 'success',
                 ],
                 [
                     'text' => 'Data Jurusan',
-                    'url' => 'majors',
+                    'url' => 'admin/majors',
                     'icon' => 'fas fa-fw fa-layer-group',
                     'label_color' => 'success',
                 ],

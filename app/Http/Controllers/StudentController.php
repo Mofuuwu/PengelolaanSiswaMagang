@@ -14,7 +14,7 @@ class StudentController extends Controller
     {
         $students = Student::with('school', 'major', 'schoolAdvisor')->get();
         // dd($students);
-        return view('students.index', compact('students'));
+        return view('admin.students.index', compact('students'));
     }
 
     public function create()
@@ -22,7 +22,7 @@ class StudentController extends Controller
         $majors = Major::all();
         $schools = School::all();
         $schoolAdvisors = SchoolAdvisor::all();
-        return view('students.create', compact('schools', 'schoolAdvisors', 'majors'));
+        return view('admin.students.create', compact('schools', 'schoolAdvisors', 'majors'));
     }
 
     public function store(Request $request)
@@ -72,7 +72,7 @@ class StudentController extends Controller
     public function show(string $id)
     {
         $student = Student::with('major', 'school', 'schoolAdvisor')->findOrFail($id);
-        return view('students.detail', compact('student'));
+        return view('admin.students.detail', compact('student'));
     }
 
     public function edit(string $id)
@@ -81,7 +81,7 @@ class StudentController extends Controller
         $majors = Major::all();
         $schools = School::all();
         $schoolAdvisors = SchoolAdvisor::all();
-        return view('students.edit', compact('student','schools', 'schoolAdvisors', 'majors'));
+        return view('admin.students.edit', compact('student','schools', 'schoolAdvisors', 'majors'));
     }
 
     public function update(Request $request, string $id)
